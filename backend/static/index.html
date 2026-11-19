@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Estacionamento Inteligente</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>🅿️ Estacionamento Inteligente</h1>
+    <span id="ws-badge" class="badge off">painel: desconectado</span>
+  </header>
+
+  <main>
+    <section>
+      <h2>Vagas</h2>
+      <div id="spots" class="spots"></div>
+    </section>
+
+    <section>
+      <h2>Dispositivo</h2>
+      <div class="row"><strong>ESP32-01</strong> <span id="dev-badge" class="badge off">OFFLINE</span></div>
+      <div class="muted">Última comunicação: <span id="dev-seen">—</span></div>
+      <div class="controls">
+        <button id="btn-status">Atualizar vagas</button>
+        <button id="btn-led">Testar LEDs</button>
+      </div>
+      <div id="toast" class="toast hidden"></div>
+    </section>
+
+    <section class="wide">
+      <h2>Comunicação XMPP</h2>
+      <div class="xmpp-status">
+        <div>Servidor Prosody: <span id="x-prosody" class="badge off">—</span></div>
+        <div>Backend XMPP: <span id="x-backend" class="badge off">—</span></div>
+        <div>ESP32-01: <span id="x-device" class="badge off">—</span></div>
+      </div>
+      <div id="messages" class="messages"></div>
+    </section>
+
+    <section class="wide">
+      <h2>Histórico (em memória)</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Horário</th><th>Evento</th><th>Vaga</th><th>Anterior</th><th>Novo</th></tr></thead>
+          <tbody id="history"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script src="js/app.js"></script>
+</body>
+</html>
